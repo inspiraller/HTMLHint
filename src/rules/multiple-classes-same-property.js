@@ -125,15 +125,15 @@ HTMLHint.addRule({
                         reporter.error(strReport, objElem.line, 0, self, event.raw);                    
                     }
                 }else{
+                    
                     // capture tag pairing.
                     var intStartLine = htmlWrapped.intStartLine;
                     var intBadLine = htmlWrapped.intBadLine;
                     var strMsg = htmlWrapped.strMsg;
-
-                    reporter.error(strMsg, intStartLine, 0, self, event.raw); 
-
+                    
                     if(typeof intBadLine !== 'undefined'){
                         reporter.error(strMsg, intBadLine, 0, self, event.raw);      
+                        reporter.error(strMsg, intStartLine, 0, self, event.raw); 
                     }
                                           
                 }

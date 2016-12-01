@@ -44,7 +44,8 @@ var HTMLParser = (function(undefined){
             self.fire('start', {
                 pos: 0,
                 line: 1,
-                col: 1
+                col: 1,
+                html:html
             });
 
             while((match = regTag.exec(html))){

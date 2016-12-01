@@ -13,12 +13,8 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            browser: {
-                src: ['src/**/*.js'],
-                options: {
-                    jshintrc: ".jshintrc-browser"
-                }
-            },
+            
+
             node: {
                 src: ['Gruntfile.js', 'test/**/*.js', 'bin/*'],
                 options: {
@@ -29,7 +25,20 @@ module.exports = function(grunt) {
         clean: ["lib", "coverage"],
         concat: {
             htmlhint: {
-                src: ['src/core.js', 'src/reporter.js', 'src/htmlparser.js', 'src/rules/*.js'],
+                src: [
+                    'src/core.js', 
+                    'src/reporter.js', 
+                    'src/htmlparser.js', 
+
+                    /* in order */
+                    'src/multipleClassDependencies/wrapTagPointers.js',
+                    'src/multipleClassDependencies/styleBlocks.js',
+                    'src/multipleClassDependencies/createHtmlAsJson.js',
+                    'src/multipleClassDependencies/styleBlocksFilter.js',
+                    'src/multipleClassDependencies/reportMultipleClassesWithSameProps.js',
+
+                    'src/rules/*.js'
+                ],
                 dest: 'lib/htmlhint.js'
             }
         },
@@ -45,19 +54,7 @@ module.exports = function(grunt) {
                 stderr: true
             }
         },
-        uglify: {
-            htmlhint: {
-                options: {
-                    banner: "/*!\r\n * HTMLHint v<%= pkg.version %>\r\n * https://github.com/yaniswang/HTMLHint\r\n *\r\n * (c) 2014-"+new Date().getFullYear()+" Yanis Wang <yanis.wang@gmail.com>.\r\n * MIT Licensed\r\n */\n",
-                    beautify: {
-                        ascii_only: true
-                    }
-                },
-                files: {
-                    'lib/<%= pkg.name %>.js': ['<%= concat.htmlhint.dest %>']
-                }
-            }
-        },
+
         replace: {
             version: {
                 files: {

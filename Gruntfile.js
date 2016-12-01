@@ -13,8 +13,12 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            
-
+            browser: {
+                src: ['src/**/*.js'],
+                options: {
+                    jshintrc: ".jshintrc-browser"
+                }
+            },
             node: {
                 src: ['Gruntfile.js', 'test/**/*.js', 'bin/*'],
                 options: {

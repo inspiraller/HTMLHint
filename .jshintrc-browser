@@ -5,7 +5,7 @@
     "regexdash": true,
     "trailing": true,
     "undef": true,
-    "unused": true,
+    "unused": false,
     "maxerr": 100,
 
     "eqnull": true,

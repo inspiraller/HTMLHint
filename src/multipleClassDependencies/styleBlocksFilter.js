@@ -83,6 +83,7 @@ StyleBlocksFilter.prototype = {
 
         if(isExcludeBemModifier){
             var regBem  = /^[\.\#\w][^\.\#\{\(\[\;\:]*\-\-[^\-]+$/;
+                
             if(strClass.search(regBem)!==-1){             
                 return true;
             }            

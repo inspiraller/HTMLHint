@@ -18,6 +18,9 @@ HTMLHint.addRule({
         var reporter = {
             error:function(str, intLine){
                 console.log(str);
+            },
+            warn:function(str, intLine){
+                console.log(str);
             }
         }
         var strAllStyles = $('#styles').val();
